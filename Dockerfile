@@ -1,4 +1,4 @@
-FROM hypriot/rpi-node:latest
+FROM hypriot/rpi-node:slim
 
 ADD src/ /src
 WORKDIR /src
