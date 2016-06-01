@@ -16,7 +16,7 @@ var BluetoothList = React.createClass({
     componentDidMount: function () {
         var that = this;
 
-        that.socket = io.connect('http://localhost:9000');
+        that.socket = io.connect(location.host);
         that.socket.on('enter', function(data) {
             var stickers = that.state.stickers
             var devices = that.state.devices
@@ -93,7 +93,6 @@ var DevicesList = React.createClass({
             if (devs.hasOwnProperty(k)) {
                 var device = devs[k];
                 var timestamp = moment(device.timestamp).format("DD MM YYYY, h:mm:ss a");
-                console.log(device)
                 if (this.props.type == 'sticker'){
                     Devices.push(<tr key={device.id}>
                         <td>{device.id}</td>
@@ -125,7 +124,6 @@ var DevicesList = React.createClass({
     render: function () {
         var Devices = []
         Devices = this.renderList()
-        console.log(Devices)
         if (Devices.length < 1){
             Devices = (<tr><th>Scanning...</th><th>.</th><th>.</th></tr>);
         }
