@@ -1,0 +1,1 @@
+RUN: sudo docker run --net=host --privileged -d danibram/rpi-bluetooth-node
