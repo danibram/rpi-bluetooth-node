@@ -16,7 +16,7 @@ var BluetoothList = React.createClass({
     componentDidMount: function () {
         var that = this;
 
-        that.socket = io.connect('http://localhost:9000');
+        that.socket = io.connect(location.host);
         that.socket.on('enter', function(data) {
             var stickers = that.state.stickers
             var devices = that.state.devices
